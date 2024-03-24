@@ -4,10 +4,7 @@ class Solution {
         int coupon = chicken;
         int leftCoupon = 0;
 
-        while(coupon > 0) {
-            if (coupon < 10) {
-                break;
-            }
+        while(coupon >= 10) {
             serviceChicken += coupon / 10;
             leftCoupon = coupon % 10;
             coupon = (coupon / 10) + leftCoupon;
