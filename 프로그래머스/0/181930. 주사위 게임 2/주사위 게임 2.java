@@ -1,0 +1,16 @@
+import java.lang.Math;
+
+class Solution {
+    public int solution(int a, int b, int c) {
+        int answer = a + b + c;
+
+        if(a == b || b == c || a == c) {
+            answer = answer * (a*a + b*b + c*c);
+        } 
+        if(a == b && a == c) {            
+            answer = answer * (a*a*a + b*b*b + c*c*c);
+        }
+ 
+        return answer;
+    }
+}
