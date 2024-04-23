@@ -1,22 +1,22 @@
 import java.io.*;
-import java.util.Hashtable;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
         int n = Integer.parseInt(br.readLine());
-        String[] str = br.readLine().split(" ");
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
         int v = Integer.parseInt(br.readLine());
 
-        Hashtable<Integer, Integer> ht = new Hashtable<>();
-
+        HashMap<Integer, Integer> map = new HashMap();
         int cnt = 0;
-        for (int i = 0; i < str.length; i++) {
-            ht.put(i, Integer.parseInt(str[i]));
+        for (int i = 0; i < n; i++) {
+            map.put(i, Integer.parseInt(st.nextToken()));
 
-            if (ht.get(i) == v) {
+            if (map.get(i) == v) {
                 cnt++;
             }
         }
