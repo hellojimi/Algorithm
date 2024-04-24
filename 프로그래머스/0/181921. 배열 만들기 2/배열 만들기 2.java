@@ -2,6 +2,7 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int l, int r) {
+        int[] answer = {};
         ArrayList<Integer> list = new ArrayList();
         
         for (int i = l; i <= r; i++) {
@@ -18,13 +19,12 @@ class Solution {
                 list.add(Integer.parseInt(str));
             }
         }
-
-        int[] answer = list.stream().mapToInt(x -> x).toArray();
         
-        if(answer.length == 0) {
-            answer = new int[1];
-            answer[0] = -1;
-        } 
+        if(list.isEmpty()) {
+            answer = new int[] {-1};
+        } else {
+            answer = list.stream().mapToInt(x -> x).toArray();
+        }
         
         return answer;
     }
