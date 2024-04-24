@@ -1,10 +1,10 @@
 # [level 0] 콜라츠 수열 만들기 - 181919 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181919?language=java) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181919) 
 
 ### 성능 요약
 
-메모리: 84.8 MB, 시간: 1.81 ms
+메모리: 72.6 MB, 시간: 1.76 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 04월 24일 19:08:54
+2024년 04월 24일 19:10:57
 
 ### 문제 설명
 

@@ -4,18 +4,15 @@ class Solution {
     public int[] solution(int n) {
         ArrayList<Integer> list = new ArrayList();
 
-        while (true) {
+        while (n > 1) {
             list.add(n);
             if (n % 2 == 0) {
                 n /= 2;
             } else {
                 n = 3 * n + 1;
             }
-            if (n == 1) {
-                list.add(n);
-                break;
-            }
         }
+        list.add(1);
 
         return list.stream().mapToInt(x -> x).toArray();
     }
