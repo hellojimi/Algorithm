@@ -16,16 +16,7 @@ class Solution {
             }
         }
         
-        if(list.size() == 0) {
-            return answer;
-            
-        } else {
-            Collections.sort(list);
-            for(String str : list) {
-                answer += str;
-            }
-        }
-        
-        return answer;
+        Collections.sort(list);
+        return String.join("", list);
     }
 }
