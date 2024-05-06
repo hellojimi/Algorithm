@@ -2,12 +2,12 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] nums) {
-        HashMap<Integer, Integer> hm = new HashMap();
+        HashSet<Integer> hs = new HashSet();
         
         for(int i : nums) {
-            hm.put(i, hm.getOrDefault(i, 0) + 1);
+            hs.add(i);
         }
         
-        return hm.size() > nums.length / 2 ? nums.length / 2 : hm.size();
+        return Math.min(hs.size(), nums.length / 2);
     }
 }
