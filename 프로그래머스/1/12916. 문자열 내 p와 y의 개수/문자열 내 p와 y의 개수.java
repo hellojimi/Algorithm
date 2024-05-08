@@ -4,17 +4,17 @@ class Solution {
             return true;
         }
         
-        int pCnt = 0;
-        int yCnt = 0;
+        s = s.toLowerCase();
+        int cnt = 0;
         
         for (String x : s.split("")) {
-            if ("p".equals(x) || "P".equals(x)) {
-                pCnt++;
-            } else if ("y".equals(x) || "Y".equals(x)) {
-                yCnt++;
+            if ("p".equals(x)) {
+                cnt++;
+            } else if ("y".equals(x)) {
+                cnt--;
             }
         }
         
-        return pCnt == yCnt ? true : false;
+        return cnt == 0;
     }
 }
