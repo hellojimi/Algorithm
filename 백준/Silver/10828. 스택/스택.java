@@ -1,51 +1,44 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Stack;
+import java.io.*;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
+        int N = Integer.parseInt(br.readLine());
 
-        Stack<Integer> stack = new Stack();
-        while (n != 0) {
+        Stack stack = new Stack();
+        StringBuilder out = new StringBuilder();
+
+        for (int i = 0; i < N; i++) {
             String str = br.readLine();
-            Integer result = PrintStack(stack, str);
-            if (result != null) {
-                System.out.println(result);
+
+            String[] line = str.split(" ");
+            if ("push".equals(line[0])) {
+                stack.push(line[1]);
             }
-
-            n--;
-        }
-    }
-
-    private static Integer PrintStack(Stack<Integer> stack, String str) {
-        switch (str) {
-            case "pop":
+            else if ("pop".equals(str)) {
                 if (stack.isEmpty()) {
-                    return -1;
+                    out.append(-1 + "\n");
+                    continue;
                 }
-
-                return stack.pop();
-            case "size":
-                return stack.size();
-
-            case "empty":
-                return stack.isEmpty() ? 1 : 0;
-
-            case "top":
+                out.append(stack.pop() + "\n");
+            }
+            else if ("size".equals(str)) {
+                out.append(stack.size() + "\n");
+            }
+            else if ("empty".equals(str)) {
+                out.append(stack.isEmpty() ? 1 : 0);
+                out.append("\n");
+            }
+            else {
                 if (stack.isEmpty()) {
-                    return -1;
+                    out.append(-1 + "\n");
+                    continue;
                 }
-
-                return stack.peek();
-            default:
-                stack.push(Integer.parseInt(str.substring(5)));
-                break;
+                out.append(stack.peek() + "\n");
+            }
         }
-
-        return null;
+        System.out.println(out);
     }
 }
