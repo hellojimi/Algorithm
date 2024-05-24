@@ -4,22 +4,18 @@ import java.util.stream.IntStream;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) throws IOException{
+         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
 
-        Queue<Integer> queue = new LinkedList();
-        IntStream.range(1, N + 1).forEach(queue::add);
+        Queue queue = new LinkedList();
+        IntStream.range(1, N + 1).forEach(x -> queue.add(x));
 
-        while (!queue.isEmpty()) {
-            if (queue.size() == 1) {
-                System.out.println(queue.peek());
-                break;
-            }
-
+        while (queue.size() > 1) {
             queue.poll();
-            int data = queue.remove();
-            queue.add(data);
+            queue.add(queue.poll());
         }
+
+        System.out.println(queue.peek());
     }
 }
