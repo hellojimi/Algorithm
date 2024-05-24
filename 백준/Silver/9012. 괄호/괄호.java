@@ -5,39 +5,37 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(br.readLine());
 
-        int num = Integer.parseInt(br.readLine());
-        String[] ps = new String[num];
         Stack stack = new Stack();
-        boolean flag = true;
+        StringBuilder out = new StringBuilder();
+        boolean check = true;
+        
+        for (int i = 0; i < T; i++) {
+            String PS = br.readLine();
 
-        for (int i = 0; i < num; i++) {
-            ps[i] = br.readLine();
-        }
-
-        for (int i = 0; i < ps.length; i++) {
-            for (String vps : ps[i].split("")) {
-                if (vps.equals("(")) {
-                    stack.push(vps);
+            for (int j = 0; j < PS.length(); j++) {
+                if (PS.charAt(j) == '(') {
+                    stack.push('(');
                 } else {
                     if (stack.isEmpty()) {
-                        flag = false;
+                        check = false;
                         break;
-                    } else {
+                    } else if(PS.charAt(j) == ')') {
                         stack.pop();
                     }
                 }
             }
 
-            if (flag && stack.isEmpty()) {
-                System.out.println("YES");
+            if (check && stack.isEmpty()) {
+                out.append("YES").append("\n");
             } else {
-                System.out.println("NO");
+                out.append("NO").append("\n");
             }
-
+            
             stack.clear();
-            flag = true;
+            check = true;
         }
-
+        System.out.println(out);
     }
 }
