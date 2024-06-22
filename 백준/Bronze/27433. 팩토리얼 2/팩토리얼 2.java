@@ -1,17 +1,18 @@
 import java.io.*;
 
-public class Main {
-
+class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
-
-        long answer = 1;
-        for (int i = N; i > 0; i--) {
-            answer *= N;
-            N -= 1;
+        BufferedReader sb = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(sb.readLine());
+        
+        System.out.println(factorial(N));
+    }
+    
+    public static long factorial(int n) {
+        if(n == 1 || n == 0) {
+            return 1;
         }
-
-        System.out.println(answer);
+        
+        return n * factorial(n - 1);
     }
 }
