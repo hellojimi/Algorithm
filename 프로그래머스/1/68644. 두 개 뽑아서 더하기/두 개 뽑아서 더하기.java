@@ -1,24 +1,15 @@
 import java.util.*;
 
 class Solution {
-    
-    static Set<Integer> result = new HashSet();
-    
     public int[] solution(int[] numbers) {
-        combination(numbers, 2, 0, 0, new int[2]);
+        TreeSet<Integer> set = new TreeSet();
         
-        return result.stream().mapToInt(x -> x).sorted().toArray();
-    }
-    
-    public static void combination(int[] numbers, int depth, int start, int cnt, int[] arr) {
-        if (depth == cnt) {
-            result.add(Arrays.stream(arr).sum());
-            return;
+        for(int i = 0; i < numbers.length - 1; i++) {
+            for(int j = i + 1; j < numbers.length; j++) {
+                set.add(numbers[i] + numbers[j]);
+            }
         }
         
-        for (int i = start; i < numbers.length; i++) {
-            arr[cnt] = numbers[i];
-            combination(numbers, depth, i + 1, cnt + 1, arr);
-        }
+        return set.stream().mapToInt(Integer::new).toArray();
     }
 }
