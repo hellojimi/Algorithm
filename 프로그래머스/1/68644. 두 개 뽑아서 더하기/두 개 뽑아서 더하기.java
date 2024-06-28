@@ -10,6 +10,6 @@ class Solution {
             }
         }
         
-        return set.stream().mapToInt(Integer::new).toArray();
+        return set.stream().mapToInt(Integer::intValue).toArray();
     }
 }
