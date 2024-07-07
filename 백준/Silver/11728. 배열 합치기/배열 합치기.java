@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Main {
 
@@ -9,20 +10,20 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        String[] arr = br.readLine().split(" ");
-        int N = Integer.parseInt(arr[0]);
-        int M = Integer.parseInt(arr[1]);
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
 
         int[] arrN = new int[N];
-        arr = br.readLine().split(" ");
+        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            arrN[i] = Integer.parseInt(arr[i]);
+            arrN[i] = Integer.parseInt(st.nextToken());
         }
 
         int[] arrM = new int[M];
-        arr = br.readLine().split(" ");
+        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < M; i++) {
-            arrM[i] = Integer.parseInt(arr[i]);
+            arrM[i] = Integer.parseInt(st.nextToken());
         }
 
         Arrays.sort(arrN);
