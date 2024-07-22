@@ -2,16 +2,16 @@ import java.util.*;
 
 class Solution {
     boolean solution(String s) {
-        boolean checkFlag = true;
-        
         if(s.charAt(0) == ')' || s.charAt(s.length() - 1) == '(') {
             return false;
         }
         
+        boolean flag = true;
+
         Deque deque = new ArrayDeque();
-        for(String w : s.split("")) {
-            if(w.equals("(")) {
-                deque.addLast(w);
+        for(String str : s.split("")) {
+            if(str.equals("(")) {
+                deque.addLast(str);
             } else {
                 if(deque.isEmpty()) {
                     return false;
@@ -21,10 +21,10 @@ class Solution {
             }
         }
         
-        if(checkFlag && !deque.isEmpty()) {
+        if(flag && !deque.isEmpty()) {
             return false;
         }
 
-        return checkFlag;
+        return flag;
     }
 }
